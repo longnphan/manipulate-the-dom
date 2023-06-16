@@ -63,15 +63,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
   quoteEl.addEventListener("click", randomQuote);
 
   // Part 9
-  const blogPostClass = document.getElementsByClassName("blog-post");
+  const blogPostClass = document.querySelectorAll(".blog-post");
 
-  for (item of blogPostClass) {
-    item.addEventListener("mouseout", function () {
-      item.classList.toggle("purple");
+  for (el of blogPostClass) {
+    el.addEventListener("mouseout", function () {
+      el.classList.toggle("purple");
     });
 
-    item.addEventListener("mouseenter", function () {
-      item.classList.toggle("red");
+    el.addEventListener("mouseenter", function () {
+      el.classList.toggle("red");
     });
   }
 });
