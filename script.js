@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Part 9
   const blogPostClass = document.getElementsByClassName("blog-post");
-  console.log("last thing", blogPostClass);
 
   for (item of blogPostClass) {
     item.addEventListener("mouseout", function () {
