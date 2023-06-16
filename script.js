@@ -36,10 +36,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   // Part 5
-  const pastRacesEl = document.getElementById("past-races");
-  pastRacesEl.removeChild(pastRacesEl.children[3]);
+  const pastRaces = document.querySelectorAll("#past-races li");
+  for (let item of pastRaces) {
+    if (item.textContent.toLowerCase() === "chicago") {
+      item.parentNode.removeChild(item);
+    }
+  }
 
   // Part 6
+  const pastRacesEl = document.getElementById("past-races");
   let newLi = document.createElement("li");
   newLi.textContent = "Denver";
   pastRacesEl.appendChild(newLi);
@@ -65,13 +70,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // Part 9
   const blogPostClass = document.querySelectorAll(".blog-post");
 
-  for (el of blogPostClass) {
-    el.addEventListener("mouseout", function () {
-      el.classList.toggle("purple");
+  for (item of blogPostClass) {
+    item.addEventListener("mouseout", function (e) {
+      if (e.target.localName !== "div") return;
+      e.target.classList.toggle("purple");
     });
 
-    el.addEventListener("mouseenter", function () {
-      el.classList.toggle("red");
+    item.addEventListener("mouseenter", function (e) {
+      if (e.target.localName !== "div") return;
+      e.target.classList.toggle("red");
     });
   }
 });
